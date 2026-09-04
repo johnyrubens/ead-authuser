@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class AuthenticationController {
 
    @PostMapping("/signup")
     public ResponseEntity<Object> resisterUser(@RequestBody
+                                               @Validated(UserRecordDto.UserView.UserPost.class)
                                                @JsonView(UserRecordDto.UserView.UserPost.class) UserRecordDto userRecordDto ) {
        if (userService.existsByUsername(userRecordDto.username())) {
            return ResponseEntity.status(HttpStatus.CONFLICT).body("Error: Username is Already Taken!");

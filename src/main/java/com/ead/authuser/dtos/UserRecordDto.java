@@ -9,13 +9,13 @@ public record UserRecordDto(@JsonView(UserView.UserPost.class)
                             @JsonView({UserView.UserPost.class, UserView.UserPasswordPut.class})
                             String password,
                             @JsonView(UserView.UserPasswordPut.class)
-                            String oldPassowrd,
+                            String oldPassword,
                             @JsonView({UserView.UserPost.class, UserView.UserPut.class})
                             String fullName,
                             @JsonView({UserView.UserPost.class, UserView.UserPut.class})
                             String phoneNumber,
                             @JsonView(UserView.UserImagePut.class)
-                            String imagUrl) {
+                            String imageUrl) {
 
     public interface UserView {
         interface UserPost {}

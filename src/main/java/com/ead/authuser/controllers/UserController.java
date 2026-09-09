@@ -12,6 +12,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,14 +29,10 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/users")
+//@CrossOrigin(origins = "*",  maxAge = 3600)
 public class UserController {
 
     final UserService userService;
-
-    /*@GetMapping
-    public ResponseEntity<List<UserModel>> getAllUsers() {
-        return ResponseEntity.status(HttpStatus.OK).body(userService.findAll());
-    }*/
 
     @GetMapping
     public ResponseEntity<Page<UserModel>> getAllUsers(Pageable pageable) {

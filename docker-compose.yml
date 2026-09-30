@@ -1,16 +1,30 @@
-version: "3.9"
+name: ead-microservices
 
 services:
-  postgres:
+  courses-db:
     image: postgres:16
-    container_name: ead-authuser-postgres
-    restart: unless-stopped
-    env_file:
-      - .env
+    container_name: ead-courses
+    environment:
+      POSTGRES_DB: ead_courses_db
+      POSTGRES_USER: ead_user
+      POSTGRES_PASSWORD: Ead@2027!
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - courses_data:/var/lib/postgresql/data
+
+  authuser-db:
+    image: postgres:16
+    container_name: ead-authuser
+    environment:
+      POSTGRES_DB: ead_authuser_db
+      POSTGRES_USER: ead_user
+      POSTGRES_PASSWORD: Ead@2027!
+    ports:
+      - "5433:5432"
+    volumes:
+      - authuser_data:/var/lib/postgresql/data
 
 volumes:
-  postgres_data:
+  courses_data:
+  authuser_data:

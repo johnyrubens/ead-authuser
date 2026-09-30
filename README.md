@@ -1,7 +1,7 @@
 # EAD-MICROSERVICES
 Projeto back-end para estudos aplicado à micro-services
 
-### micro-service : ead-autuser
+### micro-service : ead-authuser
 ## Tecnologias usadas
 - Linguagem : Java
 - Framework : Sprig Boot

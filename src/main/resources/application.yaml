@@ -6,9 +6,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/ead-authuser
-    username: postgres
-    password: banco123
+    url: jdbc:postgresql://localhost:5433/ead_authuser_db
+    username: ead_user
+    password: Ead@2027!
 
   jpa:
     show-sql: true

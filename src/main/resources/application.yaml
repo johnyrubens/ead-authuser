@@ -11,7 +11,7 @@ spring:
     password: Ead@2027!
 
   jpa:
-    show-sql: true
+    #show-sql: true
     hibernate:
       ddl-auto: update
     properties:

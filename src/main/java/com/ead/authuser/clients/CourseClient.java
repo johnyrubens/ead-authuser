@@ -33,7 +33,7 @@ public class CourseClient {
                     + "/courses?userId=" + userId
                     + "&page=" + pageable.getPageNumber()
                     + "&size=" + pageable.getPageSize()
-                    + "&sort=" + pageable.getSort().toString().replaceAll(": ", ",");
+                    + "&sort=" + pageable.getSort().toString().replace(": ", ",");
 
         try {
             return restClient.get()

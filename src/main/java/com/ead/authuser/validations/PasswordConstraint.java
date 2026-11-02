@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PasswordConstraint {
     String message() default """
-              texto de erro....
+              A senha deve ter entre 6 e 20 caracteres, incluindo número, letra maiúscula, letra minúscula e caractere especial, sem espaços.
             """;
 
     Class<?>[] groups() default {};

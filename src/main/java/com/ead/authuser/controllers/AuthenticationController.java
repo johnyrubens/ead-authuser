@@ -20,7 +20,7 @@ public class AuthenticationController {
     final UserService userService;
 
    @PostMapping("/signup")
-    public ResponseEntity<Object> resisterUser(@RequestBody
+   public ResponseEntity<Object> resisterUser(@RequestBody
                                                @Validated(UserRecordDto.UserView.UserPost.class)
                                                @JsonView(UserRecordDto.UserView.UserPost.class) UserRecordDto userRecordDto ) {
        if (userService.existsByUsername(userRecordDto.username())) {

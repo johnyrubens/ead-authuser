@@ -18,13 +18,13 @@ public record UserRecordDto(@NotBlank(groups = UserView.UserPost.class, message 
                             String email,
 
                             @NotBlank(groups = {UserView.UserPost.class, UserView.UserPasswordPut.class}, message = "Password is mandatory")
-                            @Size(groups = {UserView.UserPost.class, UserView.UserPasswordPut.class}, min = 6, max = 20, message = "Size must be between 4 and 20")
+                            @Size(groups = {UserView.UserPost.class, UserView.UserPasswordPut.class}, min = 6, max = 20, message = "Size must be between 6 and 20")
                             @PasswordConstraint(groups = {UserView.UserPost.class, UserView.UserPasswordPut.class})
                             @JsonView({UserView.UserPost.class, UserView.UserPasswordPut.class})
                             String password,
 
                             @NotBlank(groups = UserView.UserPasswordPut.class, message = "Password is mandatory")
-                            @Size(groups = UserView.UserPasswordPut.class, min = 6, max = 20, message = "Size must be between 4 and 20")
+                            @Size(groups = UserView.UserPasswordPut.class, min = 6, max = 20, message = "Size must be between 6 and 20")
                             @PasswordConstraint(groups = UserView.UserPasswordPut.class)
                             @JsonView(UserView.UserPasswordPut.class)
                             String oldPassword,

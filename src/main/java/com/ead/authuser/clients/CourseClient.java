@@ -5,6 +5,7 @@ import com.ead.authuser.dtos.ResponsePageDto;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,7 +24,7 @@ public class CourseClient {
 
     final RestClient restClient;
 
-    public CourseClient(RestClient.Builder restClientBuilder) {
+    public CourseClient(@LoadBalanced RestClient.Builder restClientBuilder) {
         this.restClient = restClientBuilder.build();
     }
 

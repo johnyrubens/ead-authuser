@@ -5,6 +5,8 @@ server:
 
 
 spring:
+  application:
+    name: ead-authuser-service
   datasource:
     url: jdbc:postgresql://localhost:5433/ead_authuser_db
     username: ead_user
@@ -25,3 +27,12 @@ ead:
   api:
     url:
       course: 'http://localhost:8082/ead-course'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    #instance-id: "${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}"

@@ -3,15 +3,16 @@ server:
   servlet:
     context-path: '/ead-authuser/'
 
-
 spring:
+  application:
+    name: ead-authuser-service
   datasource:
     url: jdbc:postgresql://localhost:5433/ead_authuser_db
     username: ead_user
     password: Ead@2027!
 
   jpa:
-    #show-sql: true
+    show-sql: true
     hibernate:
       ddl-auto: update
     properties:
@@ -24,4 +25,13 @@ spring:
 ead:
   api:
     url:
-      course: 'http://localhost:8082/ead-course'
+      course: 'http://ead-course-service/ead-course'
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+    #instance-id: "${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}"
